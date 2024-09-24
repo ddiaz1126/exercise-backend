@@ -25,15 +25,16 @@ SECRET_KEY = "django-insecure-=vcn$m0f7-%i#)8qg6b+r=#$imfm(+#4tyt0*lr*q4&mr#f5&h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["10.0.0.103", "localhost"]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:19006",
-    "http://10.0.0.103:8081",
-    "exp://10.0.0.103:8081",
     "http://10.0.0.103:8000",
+    "exp://10.0.0.103:8081",
+    'http://localhost:8081',
+    'exp://gezuozo-ddiaz_1126-8081.exp.direct',
 ]
-CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_CREDENTIALS = False
 
 # Application definition
 
@@ -45,8 +46,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    # "user_profiles.apps.UserProfilesConfig",
-    'user_api.apps.UserApiConfig'
+    'user_api.apps.UserApiConfig',
+    'exercise_api.apps.ExerciseApiConfig',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -106,8 +109,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+    ),
 }
 
 # Password validation
