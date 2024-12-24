@@ -25,13 +25,14 @@ SECRET_KEY = "django-insecure-=vcn$m0f7-%i#)8qg6b+r=#$imfm(+#4tyt0*lr*q4&mr#f5&h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["10.0.0.103", "localhost"]
+ALLOWED_HOSTS = ["10.0.0.173", "10.0.0.173:8000", "10.0.0.103", "127.0.0.1", "localhost"]
 
 CORS_ALLOWED_ORIGINS = [
+    "exp://gezuozo-ddiaz_1126-8081.exp.direct",
+    "exp://10.0.0.173:8000",
     "http://10.0.0.103:8000",
     "exp://10.0.0.103:8081",
-    'http://localhost:8081',
-    'exp://gezuozo-ddiaz_1126-8081.exp.direct',
+    'http://localhost:8081'
 ]
 
 CORS_ALLOW_CREDENTIALS = False
